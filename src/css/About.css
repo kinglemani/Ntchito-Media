@@ -1,0 +1,40 @@
+section#about {
+	background: url(../assets/img/img.jpg) no-repeat;
+	background-color: #fff;
+	background-size: cover;
+}
+
+section#about .wrapper {
+	padding: 6vw 4vw;
+	display: grid;
+	gap: 1.5vw;
+	background: hsl(from var(--primary-color) h s l / 0.85);
+}
+
+section#about .wrapper > div:last-child {
+	display: grid;
+	grid-template-columns: 1fr 0rem;
+}
+section#about .wrapper > div:last-child > div:first-child {
+	display: grid;
+	gap: 1.5rem;
+	padding: 6vw 0vw;
+	font-size: clamp(0.8rem, 1.3vw, 1.5rem);
+	color: hsl(0 0% 30% / 1);
+}
+
+/* SOME CODE ESPECIALLY FOR ANIMATIONS IS IN THE `Common.css` FILE */
+
+section#about :where(h1, h2, p) {
+	/* transform: translateX(-50%) scale(0.5);
+	opacity: 0; */
+	/* animation: moveInAboutText 30s; */
+}
+
+@keyframes moveInAboutText {
+	2%,
+	to {
+		transform: translateX(0%) scale(1);
+		opacity: 1;
+	}
+}

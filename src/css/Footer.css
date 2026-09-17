@@ -1,0 +1,95 @@
+footer {
+	background-color: var(--accent-color);
+	color: #fff;
+	display: grid;
+	row-gap: 6rem;
+	padding: 2rem 0rem;
+	overflow: hidden;
+	& svg {
+		height: 1rem;
+	}
+}
+
+footer > div:first-child {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3rem;
+}
+
+/* ANIMATION PROPERTIES STARTS HERE */
+footer > div:first-child > div {
+	width: 12rem;
+	position: relative;
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: all 0.5s ease-in-out;
+}
+
+footer.activate-animation > div:first-child > div {
+	opacity: 1;
+	transform: translateX(0%);
+}
+/* ANIMATION PROPERTIES ENDS HERE */
+
+/* ANIMATION PROPERTIES STARTS HERE */
+footer > div:first-child > ul {
+	flex-grow: 1;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+	gap: 3rem 1rem;
+
+	& > li {
+		position: relative;
+		opacity: 0;
+		transform: translate(50%, 20%);
+		transition: all 0.5s ease-in-out;
+	}
+
+	& > li:first-child {
+		transition-delay: 0.25s;
+	}
+	& > li:nth-child(2) {
+		transition-delay: 0.5s;
+	}
+	& > li:nth-child(3) {
+		transition-delay: 0.75s;
+	}
+	& > li:nth-child(4) {
+		transition-delay: 1s;
+	}
+	& > li:nth-child(5) {
+		transition-delay: 1.25s;
+	}
+	& > li:last-child {
+		transition-delay: 1.5s;
+	}
+
+	& ul {
+		list-style: none;
+		display: grid;
+		row-gap: 0.6rem;
+		line-height: 1.5rem;
+	}
+	& ul > :first-child {
+		padding-bottom: 0.5rem;
+	}
+}
+
+footer.activate-animation > div:first-child > ul > li {
+	opacity: 1;
+	transform: translate(0%);
+}
+
+footer > div:last-child > p {
+	text-align: center;
+	position: relative;
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: all 0.5s ease-in-out 1.75s;
+}
+
+footer.activate-animation > div:last-child > p {
+	opacity: 1;
+	transform: translateX(0%);
+}

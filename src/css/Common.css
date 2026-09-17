@@ -1,0 +1,55 @@
+section#about .wrapper > div:first-child,
+section:where(#services, #team, #contact-two, #faq) > div:first-child {
+	display: grid;
+	gap: 1.5rem;
+	text-align: center;
+	padding-bottom: 2rem;
+	color: hsl(0 0% 40% / 1);
+	font-size: clamp(0.5rem, 2.5vw, 1rem);
+}
+
+/* ANIMATION PROPERTIES STARTS HERE */
+section#about p,
+section:where(#about, #services, #team, #contact-two, #faq)
+	> div:first-child
+	:where(h1, h2) {
+	letter-spacing: 0.4vw;
+	word-spacing: 0.0095vw;
+	position: relative;
+	opacity: 0;
+	transform: translateX(-50%) scale(0.5);
+	transition:
+		opacity 0.5s ease-in-out,
+		transform 0.5s ease-in-out;
+}
+
+section#about h1,
+section:where(#about, #services, #team, #contact-two, #faq)
+	> div:first-child
+	h1 {
+	transition-delay: 0s;
+}
+
+section#about h2,
+section:where(#about, #services, #team, #contact-two, #faq)
+	> div:first-child
+	h2 {
+	transition-delay: 0.25s;
+	animation-delay: 0.25s;
+}
+
+section#about p,
+section#faq > div:first-child p {
+	transition-delay: 0.5s;
+	animation-delay: 0.5s;
+}
+
+section#about.activate-animation p,
+section:where(#about, #services, #team, #contact-two, #faq).activate-animation
+	> div:first-child
+	:where(h1, h2) {
+	opacity: 1;
+	transform: translateX(0%) scale(1);
+}
+
+/* ANIMATION PROPERTIES ENDS HERE */

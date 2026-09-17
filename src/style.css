@@ -1,0 +1,118 @@
+@import url(./css/Header.css);
+@import url(./css/Hero.css);
+@import url(./css/Trained.css);
+@import url(./css/About.css);
+@import url(./css/Services.css);
+@import url(./css/Team.css);
+@import url(./css/ContactOne.css);
+@import url(./css/ContactTwo.css);
+@import url(./css/FAQ.css);
+@import url(./css/Footer.css);
+@import url(./css/Common.css);
+
+@layer defaults {
+	html {
+		cursor: url(./assets/img/cursor-normal.png), auto;
+	}
+	input:where([type="text"], [type="email"]),
+	textarea {
+		cursor: url(./assets/img/cursor-text.png), auto;
+	}
+	a,
+	input[type="submit"],
+	button,
+	label {
+		cursor: url(./assets/img/cursor-pointer.png), auto;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		-webkit-user-select: none;
+		user-select: none;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background-color: var(--primary-color);
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+	a {
+		color: currentColor;
+		text-decoration: none;
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	a::before {
+		content: "";
+		position: absolute;
+		top: calc(100% + 5px);
+		left: 0%;
+		width: 0%;
+		height: 2px;
+		background-color: currentColor;
+		transition: width 0.2s;
+	}
+	a:hover::before {
+		width: 100%;
+	}
+	svg {
+		height: max(1rem, 1.5vw);
+	}
+}
+
+@layer theme {
+	:root {
+		--primary-color: hsl(0, 0%, 100%);
+		--secondary-color: hsl(0, 0%, 95%);
+		--accent-color: #ff9f00;
+		--accent-color-2: #e68e00;
+		--text-color: hsl(0 0% 0%);
+	}
+	.dark {
+		--primary-color: hsl(0, 0%, 5%);
+		--secondary-color: hsl(0, 0%, 10%);
+		--accent-color: #eb9100;
+		--accent-color-2: #d48300;
+		--text-color: hsl(0 0% 97%);
+	}
+}
+
+::-webkit-scrollbar {
+	/* color: hsl(from var(--accent-color) h s l / 0.5); */
+	background-color: transparent;
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: hsl(from var(--accent-color) h s l / 0.8);
+	width: 3px;
+	height: 3px;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+	background-color: hsl(from var(--accent-color) h s l / 0.5);
+}
+
+@layer special-grid {
+	.grid-container {
+		display: grid;
+		grid-template-columns:
+			[full-width-start] minmax(1.5vw, 1fr)
+			[content-start] min(100% - (2rem * 2), 120ch) [content-end]
+			minmax(1.5vw, 1fr) [full-width-end];
+	}
+
+	.grid-container > * {
+		grid-column: content;
+	}
+
+	.grid-container > .full-width {
+		grid-column: full-width;
+	}
+}

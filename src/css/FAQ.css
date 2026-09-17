@@ -1,0 +1,128 @@
+section#faq {
+	padding: 4rem 0rem;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	gap: 1.5rem;
+	background-color: var(--secondary-color);
+	overflow: hidden;
+}
+
+section#faq ul {
+	list-style: none;
+	display: grid;
+	gap: max(0.8rem, 1vw);
+}
+
+section#faq ul li {
+	display: grid;
+	grid-template-rows: auto 0fr;
+	color: hsl(0 0% 40% / 1);
+	font-size: max(1rem, 1.2vw);
+	border: 2px solid hsl(0 0% 97% / 1);
+	border-radius: 10px;
+	background-color: hsl(0 0% 96% / 1);
+	opacity: 0;
+	transform: translateX(-50%);
+	&:nth-child(2),
+	&:nth-child(4) {
+		transform: translateX(50%);
+	}
+	&:hover {
+		border-color: var(--accent-color);
+		cursor: url(../assets/img/cursor-pointer.png), auto;
+	}
+	span:first-child {
+		position: relative;
+		color: var(--accent-color);
+	}
+	span:first-child svg {
+		height: max(1rem, 1vw);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(0deg);
+		transition: transform 0.25s ease-in-out;
+	}
+
+	&:first-child {
+		transition:
+			opacity 0.5s ease-in-out 0.5s,
+			transform 0.5s ease-in-out 0.5s,
+			grid-template-rows 0.25s ease-in-out;
+	}
+	&:nth-child(2) {
+		transition:
+			opacity 0.5s ease-in-out 0.75s,
+			transform 0.5s ease-in-out 0.75s,
+			grid-template-rows 0.25s ease-in-out;
+	}
+	&:nth-child(3) {
+		transition:
+			opacity 0.5s ease-in-out 1s,
+			transform 0.5s ease-in-out 1s,
+			grid-template-rows 0.25s ease-in-out;
+	}
+	&:nth-child(4) {
+		transition:
+			opacity 0.5s ease-in-out 1.25s,
+			transform 0.5s ease-in-out 1.25s,
+			grid-template-rows 0.25s ease-in-out;
+	}
+	&:last-child {
+		transition:
+			opacity 0.5s ease-in-out 1.5s,
+			transform 0.5s ease-in-out 1.5s,
+			grid-template-rows 0.25s ease-in-out;
+	}
+}
+
+section#faq.activate-animation ul li {
+	opacity: 1;
+	transform: translateX(0%);
+}
+
+section#faq ul li > div {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	gap: max(1rem, 1.7vw);
+}
+section#faq ul li > div > div {
+	position: relative;
+	margin: max(2rem, 3vw);
+	padding: 0vw max(1rem, 1vw);
+	width: 100%;
+	transition: width 0.5s ease-in-out;
+	&::before,
+	&::after {
+		content: "";
+		background-color: var(--accent-color);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 4px;
+		height: 100%;
+		border-radius: 10px;
+		transition: left 0.5s ease-in-out;
+	}
+}
+
+section#faq ul li > div:first-child {
+	padding: max(1rem, 1vw) max(2rem, 2vw);
+}
+
+section#faq ul li.expand {
+	grid-template-rows: auto 1fr;
+	span:first-child svg {
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+	& > div > div {
+		&::before {
+			left: 0%;
+		}
+		&::after {
+			left: 100%;
+		}
+	}
+}

@@ -1,0 +1,95 @@
+section#hero .wrapper {
+	background: url(../assets/img/deer.png) no-repeat;
+	background-size: contain;
+	background-position: 200%;
+	animation: moveInHeroBGImg 5s ease-in-out forwards;
+	font-size: min(2rem, 3vw);
+	display: flex;
+	align-items: center;
+	color: var(--text-color);
+}
+
+section#hero span {
+	color: var(--accent-color);
+}
+section#hero .wrapper > div:first-child {
+	padding: 8vw 0vw 10vw;
+	width: 70%;
+	background-image: linear-gradient(
+		90deg,
+		var(--primary-color) 30%,
+		transparent
+	);
+}
+section#hero .wrapper > div:first-child > p {
+	position: relative;
+	transform: translateX(-50%) scale(0.5);
+	letter-spacing: 0.5rem;
+	opacity: 0;
+	animation: moveInHeroText 5s ease-in-out forwards;
+}
+
+section#hero span.text.hide {
+	display: none;
+}
+
+section#hero span.text {
+	& > span {
+		opacity: 0;
+	}
+}
+
+@keyframes reappear {
+	from {
+		opacity: 0;
+	}
+	10%,
+	90% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+@keyframes reappear2 {
+	from {
+		opacity: 0;
+	}
+	10%,
+	90% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes moveInHeroBGImg {
+	from {
+		background-position-x: 150%;
+	}
+	15%,
+	95%,
+	to {
+		background-position-x: 100%;
+	}
+	98% {
+		background-position-x: 110%;
+	}
+}
+
+@keyframes moveInHeroText {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) scale(0.5);
+	}
+	15%,
+	95%,
+	to {
+		opacity: 1;
+		transform: translateX(0%) scale(1);
+	}
+	98% {
+		transform: translateX(-10%) scale(1);
+	}
+}

@@ -1,0 +1,30 @@
+section#trained {
+	background-color: var(--accent-color);
+	color: hsl(0, 0%, 95%);
+	padding: 4rem;
+	display: flex;
+	justify-content: center;
+	font-size: min(2rem, 3vw);
+}
+
+section#trained p {
+	position: relative;
+	opacity: 0;
+	letter-spacing: 2rem;
+	word-wrap: normal;
+	transform: translateX(-50%) scale(1);
+	animation: moveInTrainedText 1s ease-in-out forwards;
+}
+
+@keyframes moveInTrainedText {
+	from {
+		letter-spacing: 2rem;
+		opacity: 0;
+		transform: translateX(-50%) scale(1);
+	}
+	to {
+		letter-spacing: 0.5rem;
+		opacity: 1;
+		transform: translateX(0%) scale(1);
+	}
+}
